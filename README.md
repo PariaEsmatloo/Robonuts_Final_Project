@@ -16,3 +16,9 @@ Instructions to set up the requirements
 - The REINFORCE code uses Tensorflow agents. Tensorflow installation instructions : https://www.tensorflow.org/install
 - Please not that on ubuntu, you may need to have compatibility issues getting REINFORCE to run. Mujoco-py requires numpy version 20, but Tensorflow 2 supports up to an earlier version.
 
+# Actor Critic Method
+Once you have all the dependencies installed, download "actor_critic_continuous.py", and "main_reacher_ac_mean.py" and make sure they are in the same directory. Run main_reacher_ac.mean.py. This program trains an Actor-Critic agent over 10 trials of 200 episodes. The outputs are CSV files containing episode number and total reward value for each episode in each trial, and figures demonstrating that. Moreover, averaged values over these 10 trials are also calculated and saved in a separate CSV file containing episode number, average, and standard deviation columns. The averaged values are also plotted in a separate figure similar to the one below.
+
+
+
+![image](https://user-images.githubusercontent.com/77804192/117373694-5e44f300-ae91-11eb-967e-ed9cc72f09dc.png)
