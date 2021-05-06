@@ -19,6 +19,21 @@ Instructions to set up the requirements
 # Actor Critic Method
 Once you have all the dependencies installed, download "actor_critic_continuous.py", and "main_reacher_ac_mean.py" and make sure they are in the same directory. Run main_reacher_ac.mean.py. This program trains an Actor-Critic agent over 10 trials of 200 episodes. The outputs are CSV files containing episode number and total reward value for each episode in each trial, and figures demonstrating that. Moreover, averaged values over these 10 trials are also calculated and saved in a separate CSV file containing episode number, average, and standard deviation columns. The averaged values are also plotted in a separate figure similar to the one below.
 
-
-
 ![image](https://user-images.githubusercontent.com/77804192/117373694-5e44f300-ae91-11eb-967e-ed9cc72f09dc.png)
+
+If you wish to render the environment, keep "env.render()" uncommented. But, if you want to increase the program speed, comment this line.
+
+
+# REINFORCE Method
+
+
+# Random Agent
+The script "reacher_random_agent_average.py" under the Random_Agent directory tests a random agent over 10 trials of 200 episodes on the reacher environment. The outputs files are similar to the Actor-Critic method, and the averaged results are shown below:
+![image](https://user-images.githubusercontent.com/77804192/117374089-212d3080-ae92-11eb-9e83-a3e21eda374a.png)
+
+
+# Comparison of Results
+The script "plot_results.py" under the main directory loads the averaged CSV files which are renamed and relocated to the main directory and visualizes all results in a single figure for easy comparison.
+![image](https://user-images.githubusercontent.com/77804192/117374253-6ea99d80-ae92-11eb-93bd-c28ea3827cd5.png)
+
+
