@@ -1,0 +1,239 @@
+import csv
+import matplotlib
+import matplotlib.pyplot as plt
+import statistics as s
+import torch as T
+returns_t1 = []
+episode_t1 = []
+
+
+
+with open('Acrobot_Trial_1.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t1.append(int(lines[0]))
+        returns_t1.append(float(lines[1]))
+        
+ax = plt.plot(episode_t1, returns_t1, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+plt.savefig('fig_Trial1.png')
+plt.show()
+
+returns_t2 = []
+episode_t2 = []
+
+with open('Acrobot_Trial_2.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t2.append(int(lines[0]))
+        returns_t2.append(float(lines[1]))
+        
+ax = plt.plot(episode_t2, returns_t2, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+plt.savefig('fig_Trial2.png')
+plt.show()
+
+returns_t3 = []
+episode_t3 = []
+
+with open('Acrobot_Trial_3.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t3.append(int(lines[0]))
+        returns_t3.append(float(lines[1]))
+        
+ax = plt.plot(episode_t3, returns_t3, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+
+plt.savefig('fig_Trial3.png')
+plt.show()
+
+returns_t4 = []
+episode_t4 = []
+
+with open('Acrobot_Trial_4.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t4.append(int(lines[0]))
+        returns_t4.append(float(lines[1]))
+        
+bx = plt.plot(episode_t4, returns_t4, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+
+plt.savefig('fig_Trial4.png')
+plt.show()
+
+returns_t5 = []
+episode_t5 = []
+
+with open('Acrobot_Trial_5.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t5.append(int(lines[0]))
+        returns_t5.append(float(lines[1]))
+        
+ax = plt.plot(episode_t5, returns_t5, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+
+plt.savefig('fig_Trial5.png')
+plt.show()
+
+returns_t6 = []
+episode_t6 = []
+
+with open('Acrobot_Trial_6.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t6.append(int(lines[0]))
+        returns_t6.append(float(lines[1]))
+        
+ax = plt.plot(episode_t6, returns_t6, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+
+
+plt.savefig('fig_Trial6.png')
+plt.show()
+
+returns_t7 = []
+episode_t7 = []
+
+with open('Acrobot_Trial_7.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t7.append(int(lines[0]))
+        returns_t7.append(float(lines[1]))
+        
+ax = plt.plot(episode_t7, returns_t7, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+
+
+plt.savefig('fig_Trial7.png')
+plt.show()
+
+returns_t8 = []
+episode_t8 = []
+
+with open('Acrobot_Trial_8.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t8.append(int(lines[0]))
+        returns_t8.append(float(lines[1]))
+        
+ax = plt.plot(episode_t8, returns_t8, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+
+plt.savefig('fig_Trial8.png')
+plt.show()
+
+returns_t9 = []
+episode_t9 = []
+
+with open('Acrobot_Trial_9.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t9.append(int(lines[0]))
+        returns_t9.append(float(lines[1]))
+        
+ax = plt.plot(episode_t9, returns_t9, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+
+plt.savefig('fig_Trial9.png')
+plt.show()
+
+returns_t10 = []
+episode_t10 = []
+
+with open('Acrobot_Trial_10.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for lines in csv_reader:
+        episode_t10.append(int(lines[0]))
+        returns_t10.append(float(lines[1]))
+        
+ax = plt.plot(episode_t10, returns_t10, color = 'blue', linewidth=1.0)
+plt.xlabel('Episode')
+plt.ylabel('Total Score')
+plt.title('Reinforce Results')
+plt.grid()
+
+
+plt.savefig('fig_Trial10.png')
+plt.show()
+
+return_alltrials = []
+return_alltrials.append(returns_t1)
+return_alltrials.append(returns_t2)
+return_alltrials.append(returns_t3)
+return_alltrials.append(returns_t4)
+return_alltrials.append(returns_t5)
+return_alltrials.append(returns_t6)
+return_alltrials.append(returns_t7)
+return_alltrials.append(returns_t8)
+return_alltrials.append(returns_t9)
+return_alltrials.append(returns_t10)
+print(return_alltrials)
+score_history = return_alltrials
+T_score = T.tensor(return_alltrials)
+
+m_score=[]
+std_score =[]
+
+num_episodes = 200
+csv_filename_average = 'csv_average_Acrobot.csv'
+with open (csv_filename_average, 'w') as csvfile:
+    csvwriter = csv.writer(csvfile)
+    for i in range(num_episodes):    
+
+        mean_score = T.mean(T_score[:,i].float()).item()
+        m_score.append(mean_score)
+
+        standard_score = T.std(T_score[:,i].float()).item()
+        std_score.append(standard_score)
+
+        csvwriter.writerow([i,mean_score, standard_score])
+fig, ax = plt.subplots()
+
+
+ax.plot(range(num_episodes), m_score)
+
+m_plus_std = []
+m_minus_std =[]
+for (mm , ss) in zip ( m_score, std_score):
+    m_plus_std.append(mm+ss)
+    m_minus_std.append(mm-ss)
+
+ax.fill_between(range(num_episodes),m_minus_std , m_plus_std , alpha=0.2)
+
+ax.set(xlabel='Episode', ylabel='Total Score',ylim= [-600 -200],
+       title='Averaged REINFORCE Results in Acrobot Environment')
+ax.grid()
+
+fig_filename_average = 'csv_average_acrobot.csv'
+fig.savefig(fig_filename_average)
+plt.show() 
