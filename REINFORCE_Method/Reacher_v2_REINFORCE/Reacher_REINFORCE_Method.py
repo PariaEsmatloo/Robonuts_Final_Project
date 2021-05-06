@@ -113,23 +113,23 @@ def collect_episode(environment, policy, num_episodes):
       episode_counter += 1
 
 
-# (Optional) Optimize by wrapping some of the code in a graph using TF function.
+# (Optional) Optimization through wrapphing part of the code in a graph using TF function.
 tf_agent.train = common.function(tf_agent.train)
 
-# Reset the train step
+# Resetting train step
 tf_agent.train_step_counter.assign(0)
 
-# Evaluate the agent's policy once before training.
+# Evaluating the agent's policy one time before training.
 avg_return = compute_avg_return(eval_env, tf_agent.policy, num_eval_episodes)
 returns = [avg_return]
 
 for _ in range(num_iterations):
 
-  # Collect a few episodes using collect_policy and save to the replay buffer.
+  # Collection of a few episodes using collect_policy and saving them to the replay buffer.
   collect_episode(
       train_env, tf_agent.collect_policy, collect_episodes_per_iteration)
 
-  # Use data from the buffer and update the agent's network.
+  # Using the data from the buffer to update the agent's network.
   experience = replay_buffer.gather_all()
   train_loss = tf_agent.train(experience)
   replay_buffer.clear()
@@ -171,7 +171,7 @@ plt.xlabel('Episode')
 plt.ylim(top=200)
   
 def embed_mp4(filename):
-  """Embeds an mp4 file in the notebook."""
+  """Creating an mp4 file that renders the environment"""
   video = open(filename,'rb').read()
   b64 = base64.b64encode(video)
   tag = '''
@@ -182,7 +182,7 @@ def embed_mp4(filename):
 
   return IPython.display.HTML(tag)
 num_episodes = 20
-video_filename = 'Reacher_reinforce.mp4'
+video_filename = 'Reacher_reinforce.mp4'. 
 with imageio.get_writer(video_filename, fps=60) as video:
   for _ in range(num_episodes):
     time_step = eval_env.reset()
