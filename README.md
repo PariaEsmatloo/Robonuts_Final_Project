@@ -23,7 +23,7 @@ Once you have all the dependencies installed, download "actor_critic_continuous.
 ![image](https://user-images.githubusercontent.com/77804192/117373694-5e44f300-ae91-11eb-967e-ed9cc72f09dc.png)
 
 If you wish to render the environment, keep "env.render()" uncommented. But, if you want to increase the program speed, comment this line.
-
+The details of the actor and critic classes, and the generic network used to create them are in the "actor_critic_continuous.py".
 
 # REINFORCE Method
 ![image](https://user-images.githubusercontent.com/77804192/117374781-6d2ca500-ae93-11eb-80cb-511919822aa7.png)
