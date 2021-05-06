@@ -11,6 +11,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
+# generic network used to create actor and critic
 class GenericNetwork(nn.Module):
     def __init__(self,lr,input_dims,fc1_dims,fc2_dims,n_actions):
         super(GenericNetwork,self).__init__()
@@ -28,7 +29,7 @@ class GenericNetwork(nn.Module):
         self.device = T.device('cuda:0' if T.cuda.is_available() else 'cpu')
         self.to(self.device)
         
-    def forward(self,observation):
+    def forward(self,observation): #forward propagation
         state = T.tensor(observation , dtype = T.float).to(self.device) 
 
         x = F.relu(self.fc1(state))
@@ -48,12 +49,14 @@ class Agent(object):
         self.log_probs2 = None
 
         self.n_outputs = n_outputs
+        #actor network
         self.actor = GenericNetwork(alpha, input_dims, layer1_size, 
                                     layer2_size, n_actions=n_actions)
-        
+        #critic network
         self.critic = GenericNetwork(beta, input_dims, layer1_size, 
                                      layer2_size, n_actions=1) 
-        
+   
+    #how actor chooses an action based on probabilities     
     def choose_action(self, observation):
         mu1, sigma1, mu2, sigma2  = self.actor.forward(observation)
         sigma1 = T.exp(sigma1) #to make it positive
@@ -73,6 +76,7 @@ class Agent(object):
         
         return action1.item() , action2.item()
     
+    # how critic updates the two networks based on delta (function of reward and critic value)
     def learn(self,state,reward, new_state, done):
         
        self.actor.optimizer.zero_grad()
