@@ -23,25 +23,28 @@ if __name__ == '__main__':
     
     start_time = time.time()
 
-    alpha_ac=0.000005
-    layer1_size_ac= layer2_size_ac = 256
-    beta_ac= 0.00001
-    input_dims_ac=[11]
-    gamma_ac=0.99
-    env = gym.make('Reacher-v2')
+    alpha_ac=0.000005 # learning rate for the actor
+    layer1_size_ac= layer2_size_ac = 256 # sizes of the two layers of generic network
+    beta_ac= 0.00001 #learning rate for the critic
+    input_dims_ac=[11] # dimensions of the observation space for the reacher environment
+    gamma_ac=0.99 # discount rate
+    env = gym.make('Reacher-v2')  # building the reacher environment
     score_history = []
-    num_episodes =200
+    num_episodes =200  
     num_trials = 10
         
     for trial in range(num_trials):
+        # Creating the actor-critic agent
         agent = Agent(alpha=alpha_ac, beta= beta_ac, input_dims=input_dims_ac ,gamma=gamma_ac,
               layer1_size=layer1_size_ac, layer2_size=layer2_size_ac)
+        
         score_history.append([])
         params_filename = "AC_" + str(num_episodes)+"_alpha_" + str(alpha_ac)+ "_layer_"+ \
             str(layer1_size_ac) + "_lp_" + str(1) + "_tr_" + str(trial)
         
         csv_filename = params_filename + ".csv"
         fig_filename = params_filename + ".png"
+        
         
         with open (csv_filename, 'w') as csvfile:
             csvwriter = csv.writer(csvfile)
@@ -51,16 +54,17 @@ if __name__ == '__main__':
                 score=0
                 observation = env.reset()
                 while not done:
-                    action = np.array(agent.choose_action(observation)).reshape((2,)) 
-                    observation_, reward, done, infor = env.step(action)
-                    env.render()
-                    agent.learn(observation, reward, observation_, done)
-                    observation = observation_
-                    score+=reward
-                score_history[trial].append(score)
+                    action = np.array(agent.choose_action(observation)).reshape((2,)) #chooses action based on agent 
+                    observation_, reward, done, infor = env.step(action)  #implements the action and updates status and observations
+                    env.render()  # renders environment, comment for faster processing
+                    agent.learn(observation, reward, observation_, done) # agent learns and network parameters get updated based on new observations and reward
+                    observation = observation_ # keeping track of previous observation
+                    score+=reward # updating total rewards
+                score_history[trial].append(score) 
                 print('trial: ', trial, ',episode: ',i, ',score: %.2f' %score)
                 csvwriter.writerow([i,score])
-        env.close()         
+        env.close()    
+        # plotting total score for each trial
         fig, ax = plt.subplots()
         ax.plot(range(num_episodes), score_history[trial])    
         ax.set(xlabel='Episode', ylabel='Total Score',
@@ -77,6 +81,7 @@ if __name__ == '__main__':
     std_score =[]
     T_score = T.tensor(score_history)
 
+# calculating and saving mean and standard deviation of total score at each episode between trials
 
     with open (csv_filename_average, 'w') as csvfile:
         csvwriter = csv.writer(csvfile)
@@ -90,7 +95,7 @@ if __name__ == '__main__':
             
             csvwriter.writerow([i,mean_score, standard_score])
             
-        
+    # plotting the averaged results    
     fig, ax = plt.subplots()
     
 
@@ -115,4 +120,5 @@ if __name__ == '__main__':
     end_time = time.time()
     elapsed = end_time-start_time
     
+    #checking the toal time reuired to run the program
     print("elpsaed time: ", str(timedelta(seconds=elapsed)))    
