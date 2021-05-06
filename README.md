@@ -27,6 +27,7 @@ If you wish to render the environment, keep "env.render()" uncommented. But, if 
 
 # REINFORCE Method
 
+![image](https://user-images.githubusercontent.com/77804192/117374654-28a10980-ae93-11eb-9735-2bb30add9ac7.png)
 
 # Random Agent
 The script "reacher_random_agent_average.py" under the Random_Agent directory tests a random agent over 10 trials of 200 episodes on the reacher environment. The outputs files are similar to the Actor-Critic method, and the averaged results are shown below:
