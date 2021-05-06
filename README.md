@@ -7,6 +7,7 @@ Please navigate inside the repository to review the script and results for imple
 
 This repository includes implementation of REINFORCE method as well as Actor-Critic method. A random agent implementation is also included as a baseline comparison.
 
+For more information and to learn more about the Reacher-v2 environment, please refer to our final presentation slides: https://docs.google.com/presentation/d/14hLAmN2Z3_ts44Ka-06PK0o7cxjKGGDEmc3-omIL80k/edit?usp=sharing
 
 Instructions to set up the requirements
 - Install Gym (https://gym.openai.com/docs/)
