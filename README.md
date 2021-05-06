@@ -35,7 +35,7 @@ The script "reacher_random_agent_average.py" under the Random_Agent directory te
 
 
 # Comparison of Results
-The script "plot_results.py" under the main directory loads the averaged CSV files which are renamed and relocated to the main directory and visualizes all results in a single figure for easy comparison.
+The script "plot_results.py" under the main directory loads the averaged CSV files which are renamed and relocated to the main directory and visualizes all results in a single figure for easy comparison. As detailed in the presentation, the performance of the random agent stays constant, the actor critic agent improves its performance over time, and the REINFORCE agent gets worse at the task.
 ![image](https://user-images.githubusercontent.com/77804192/117374253-6ea99d80-ae92-11eb-93bd-c28ea3827cd5.png)
 
 
