@@ -26,6 +26,15 @@ If you wish to render the environment, keep "env.render()" uncommented. But, if 
 The details of the actor and critic classes, and the generic network used to create them are in the "actor_critic_continuous.py".
 
 # REINFORCE Method
+Running the reinforce agent will require downloading the following dependencies:
+sudo apt-get update
+sudo apt-get install -y xvfb ffmpeg
+pip install -q 'imageio==2.4.0'
+pip install -q pyvirtualdisplay
+pip install -q tf-agents-nightly
+pip install -q tf-nightly
+
+After you finish the installation, you can run the program which will produce 1 trial of 200 episodes and output the file in a CSV file containing episode number and total reward value for each episode. The program was ran 10 times, and data from 10 trials was collected. The results for each trial are saved in a CSV file. The plotted results for each trial are produced in a separate code file called "Statistics_for_Reinforce". After plotting each trial, the averaged values of these 10 trials are calculated and saved in an additional CSV file which displays the episode number, average and standard deviation columns. The averaged values are also plotted and displayed in a separate figure similar to the one shown below. 
 ![image](https://user-images.githubusercontent.com/77804192/117374781-6d2ca500-ae93-11eb-80cb-511919822aa7.png)
 
 
