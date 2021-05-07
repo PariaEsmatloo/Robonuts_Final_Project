@@ -35,16 +35,19 @@ pip install -q tf-agents-nightly
 pip install -q tf-nightly
 
 After you finish the installation, you can run the program which will produce 1 trial of 200 episodes and output the file in a CSV file containing episode number and total reward value for each episode. The program was ran 10 times, and data from 10 trials was collected. The results for each trial are saved in a CSV file. The plotted results for each trial are produced in a separate code file called "Statistics_for_Reinforce". After plotting each trial, the averaged values of these 10 trials are calculated and saved in an additional CSV file which displays the episode number, average and standard deviation columns. The averaged values are also plotted and displayed in a separate figure similar to the one shown below. 
+
 ![image](https://user-images.githubusercontent.com/77804192/117374781-6d2ca500-ae93-11eb-80cb-511919822aa7.png)
 
 
 # Random Agent
 The script "reacher_random_agent_average.py" under the Random_Agent directory tests a random agent over 10 trials of 200 episodes on the reacher environment. The outputs files are similar to the Actor-Critic method, and the averaged results are shown below:
+
 ![image](https://user-images.githubusercontent.com/77804192/117374089-212d3080-ae92-11eb-9e83-a3e21eda374a.png)
 
 
 # Comparison of Results
 The script "plot_results.py" under the main directory loads the averaged CSV files which are renamed and relocated to the main directory and visualizes all results in a single figure for easy comparison. As detailed in the presentation, the performance of the random agent stays constant, the actor critic agent improves its performance over time, and the REINFORCE agent gets worse at the task.
+
 ![image](https://user-images.githubusercontent.com/77804192/117374253-6ea99d80-ae92-11eb-93bd-c28ea3827cd5.png)
 
 
